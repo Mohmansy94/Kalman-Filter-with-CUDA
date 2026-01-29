@@ -14,22 +14,32 @@ The linear Kalman Filter operates in two steps: **Prediction** and **Update**.
 #### **Prediction Step**
 Project the state and error covariance ahead in time:
 $$
-\begin{aligned}
-\hat{x}_{k|k-1} &= F_k \hat{x}_{k-1|k-1} + B_k u_k \\\\
-P_{k|k-1} &= F_k P_{k-1|k-1} F_k^T + Q_k
-\end{aligned}
+$$
+\hat{x}_{k|k-1} = F_k \hat{x}_{k-1|k-1} + B_k u_k
+$$
+$$
+P_{k|k-1} = F_k P_{k-1|k-1} F_k^T + Q_k
+$$
 $$
 
 #### **Update Step**
 Incorporate a new measurement $z_k$:
 $$
-\begin{aligned}
-\tilde{y}_k &= z_k - H_k \hat{x}_{k|k-1} & \text{(Measurement Residual)} \\\\
-S_k &= H_k P_{k|k-1} H_k^T + R_k & \text{(Residual Covariance)} \\\\
-K_k &= P_{k|k-1} H_k^T S_k^{-1} & \text{(Optimal Kalman Gain)} \\\\
-\hat{x}_{k|k} &= \hat{x}_{k|k-1} + K_k \tilde{y}_k & \text{(State Estimate)} \\\\
-P_{k|k} &= (I - K_k H_k) P_{k|k-1} & \text{(Updated Covariance)}
-\end{aligned}
+$$
+\tilde{y}_k = z_k - H_k \hat{x}_{k|k-1} \quad \text{(Measurement Residual)}
+$$
+$$
+S_k = H_k P_{k|k-1} H_k^T + R_k \quad \text{(Residual Covariance)}
+$$
+$$
+K_k = P_{k|k-1} H_k^T S_k^{-1} \quad \text{(Optimal Kalman Gain)}
+$$
+$$
+\hat{x}_{k|k} = \hat{x}_{k|k-1} + K_k \tilde{y}_k \quad \text{(State Estimate)}
+$$
+$$
+P_{k|k} = (I - K_k H_k) P_{k|k-1} \quad \text{(Updated Covariance)}
+$$
 $$
 
 Where:
