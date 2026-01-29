@@ -1,0 +1,14 @@
+# Build artifacts
+*.o
+kalman_demo
+main
+
+# IDEs
+.vscode/
+*.swp
+
+# CUDA intermediate
+*.i
+*.ii
+*.gpu
+*.ptx
