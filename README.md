@@ -13,15 +13,12 @@ The linear Kalman Filter operates in two steps: **Prediction** and **Update**.
 
 #### **Prediction Step**
 Project the state and error covariance ahead in time:
-$$
-\begin{aligned}
-\hat{x}_{k|k-1} &= F_k \hat{x}_{k-1|k-1} + B_k u_k \\\\
-P_{k|k-1} &= F_k P_{k-1|k-1} F_k^T + Q_k
-\end{aligned}
-$$
+
+![Prediction Step](images/prediction.png)
 
 #### **Update Step**
 Incorporate a new measurement $z_k$:
+
 ![Update Step](images/update.png)
 
 Where:
